@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SpellBase : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public UnityEvent spellStartEvent = new UnityEvent();
+    public UnityEvent spellEndEvent = new UnityEvent();
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        spellStartEvent.Invoke();
     }
 }

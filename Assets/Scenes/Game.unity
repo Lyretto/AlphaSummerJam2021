@@ -625,7 +625,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d550441232edfb4795d99b18262922d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpellPrefabs:
+  - {fileID: 2274334099846288826, guid: ccaaa6213178a194ba12236683c6129e, type: 3}
   CastLeftText: {fileID: 324495857}
+  SpellMenu: {fileID: 315952353}
+  letters: 0
 --- !u!1 &1172148051
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,7 +887,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 0
+  m_CharacterLimit: 15
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -993,6 +997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
     events:
+    - soundEvent: 1
+      eventName: event:/FireballHitting
     - soundEvent: 0
-      eventName: 
+      eventName: event:/SpellFailed
   fmod: 1
