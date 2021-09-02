@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum SoundEvent
 {
-    SPELLFAILED
+    SPELLFAILED, FIREBALLHITTING
 }
 
 public class SoundManager : MonoBehaviour
