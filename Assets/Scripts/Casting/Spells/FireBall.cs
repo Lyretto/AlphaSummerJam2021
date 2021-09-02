@@ -6,12 +6,17 @@ namespace Assets.Scripts.Casting.Spells
 {
     public class FireBall : MonoBehaviour
     {
-        private GameObject target = null;
-        [SerializeField] private static float speed = 4;
+
+        [SerializeField] private float lifeTime = 3;
+        [SerializeField] private float waitTime = 5;
+        [SerializeField] private float speed = 4;
+        private Vector3 target = new Vector3();
+        private bool started = false;
+        [SerializeField] private Sprite cursorFire;
 
         // Use this for initialization
-        void Start() {
-
+        void Awake() {
+            Debug.Log(target);
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
             //sB.spellStartEvent.AddListener(StartSpell);
@@ -19,23 +24,33 @@ namespace Assets.Scripts.Casting.Spells
 
         private void Update()
         {
-            if (target)
+            if (started)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, target.transform.position, 0.01f * speed);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f * speed);
             }
         }
 
         public void StartSpell()
         {
-            //START Fireball waiting
-            // TELL PLAYER TO SHOOT
+            Debug.Log("start Fireball");
+            Destroy(this.gameObject, waitTime);
+            //START Fireball waiting sound
+            CancelInvoke();
+            Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
+            //SET NEW CROSSHAIR
+            InputManager.Instance.onMouseButtonDown.AddListener(SetTarget);
         }
 
-        public void SetTarget(GameObject target)
+        public void SetTarget()
         {
+            started = true;
+            InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
+
+            Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
+
+            Destroy(this.gameObject, lifeTime);
             // Stop Fireball waiting sound
             // Activate Fireball MOVING Sound
-            this.target = target;
         }
 
         //DESTROY ON COLLISION

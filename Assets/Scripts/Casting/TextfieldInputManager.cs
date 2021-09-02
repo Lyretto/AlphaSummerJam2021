@@ -2,34 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class TextfieldInputManager : MonoBehaviour
 {
-
-    TextField tf;
     InputField iF;
 
-    int maxLetters = 50;
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         iF = GetComponent<InputField>();
-        iF.onEndEdit.AddListener(delegate { CheckFinalInput(iF); });
-        iF.onValueChanged.AddListener(delegate { CheckInput(iF); });
+        iF.onEndEdit.AddListener(delegate { CheckFinalInput(); });
+        iF.onValueChanged.AddListener(delegate { CheckInput(); });
+    }
+
+    private void OnEnable()
+    {
+        iF.text = "";
+    }
+
+    private void Update()
+    {
         iF.ActivateInputField();
     }
 
-    public void CheckFinalInput(InputField iF)
+
+    public void CheckFinalInput()
     {
         string possibleSpell = iF.text;
         Debug.Log("Try to cast Spell named: " + possibleSpell);
         SpellManager.Instance.TryCastSpell(possibleSpell);
     }
 
-    public void CheckInput(InputField iF)
+    public void CheckInput()
     {
-        Debug.Log(maxLetters);
+        Debug.Log(SpellManager.Instance.letters + 1);
         if (iF.text.Length >= SpellManager.Instance.letters + 1)
         {
             Debug.Log("Remove last letter from : "+ iF.text);
