@@ -27,7 +27,7 @@ public class SpellManager : MonoBehaviour
 
     public void TryCastSpell(string spellName)
     {
-        GameObject possibleSpell = SpellPrefabs.Find((spell) => spell.name == spellName);
+        GameObject possibleSpell = SpellPrefabs?.Find((spell) => spell.name == spellName) ?? null;
         
 
         if(possibleSpell != null)
