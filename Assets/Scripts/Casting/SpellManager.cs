@@ -13,7 +13,7 @@ public class SpellManager : MonoBehaviour
     private static SpellManager _instance;
     public static SpellManager Instance { get { return _instance; } }
 
-    void Awake()
+    void Awake() //Test
     {
         if (_instance != null && _instance != this)
         {
