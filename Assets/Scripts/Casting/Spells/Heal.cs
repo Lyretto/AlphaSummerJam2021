@@ -8,21 +8,26 @@ namespace Assets.Scripts.Casting.Spells
     {
         public int healedLifes = 2;
         //Heilt X Leben ( 2)
-        void Start()
+        void Awake()
         {
 
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
-            sB.spellStartEvent.AddListener(StopSpell);
         }
 
         public void StartSpell()
         {
             SoundManager.Instance.PlayOneShot(SoundEvent.HEALSPELL);
-            Player.Instance.ChangeLifes(healedLifes);
+            healing();
+            Destroy(this.gameObject);
         }
-        public void StopSpell()
+
+        public void healing()
         {
+            if (Player.Instance.lifes + healedLifes <= Player.Instance.maxLifes)
+                Player.Instance.ChangeLifes(healedLifes);
+            else if (Player.Instance.lifes + healedLifes > Player.Instance.maxLifes)
+                Player.Instance.ChangeLifes(Player.Instance.maxLifes - Player.Instance.lifes);
 
         }
     }
