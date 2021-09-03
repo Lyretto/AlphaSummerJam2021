@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public List<GameObject> hearts = new List<GameObject>();
     public int lifes;
     public int maxLifes;
+    public GameObject HitMarker;
 
 
     private static Player _instance;
@@ -35,12 +37,28 @@ public class Player : MonoBehaviour
     {
         lifes += amount;
         hearts.ForEach((h) => h.SetActive( int.Parse(h.name) <= lifes));
+
+        if (amount < 0)
+        {
+            ToggleHitMarker();
+            Invoke("ToggleHitMarker",0.1f);
+        }
+        if(lifes < 0)
+        {
+            Die();
+        }
+
+    }
+
+    public void ToggleHitMarker()
+    {
+        HitMarker.SetActive(!HitMarker.activeSelf);
     }
 
     public void Die()
     {
         SoundManager.Instance.PlayOneShot(SoundEvent.DEATH);
-        // TODO OPEN LOSE SCREEN 
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
