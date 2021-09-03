@@ -45,6 +45,7 @@ namespace Assets.Scripts.Casting.Spells
             CancelInvoke();
             //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
             InputManager.Instance.CastSpell(SetTarget);
+            SoundManager.Instance.FireBallSound.SetActive(true);
         }
 
         public void SetTarget()
@@ -62,6 +63,7 @@ namespace Assets.Scripts.Casting.Spells
         //DESTROY ON COLLISION
         private void OnDestroy()
         {
+            SoundManager.Instance.FireBallSound.SetActive(false);
             SoundManager.Instance.PlayOneShot(SoundEvent.FIREBALLHITTING);
         }
     }

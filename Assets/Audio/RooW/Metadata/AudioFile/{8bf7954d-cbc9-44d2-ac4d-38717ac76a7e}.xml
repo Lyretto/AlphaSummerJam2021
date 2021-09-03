@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{8bf7954d-cbc9-44d2-ac4d-38717ac76a7e}">
+		<property name="assetPath">
+			<value>fireball_moving.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.8959999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{63e9b5a5-60a0-4b57-8e25-059ecd1d932f}</destination>
+		</relationship>
+	</object>
+</objects>

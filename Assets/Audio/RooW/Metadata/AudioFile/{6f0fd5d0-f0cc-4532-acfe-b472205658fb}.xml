@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{6f0fd5d0-f0cc-4532-acfe-b472205658fb}">
+		<property name="assetPath">
+			<value>magic_failed.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.472</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{63e9b5a5-60a0-4b57-8e25-059ecd1d932f}</destination>
+		</relationship>
+	</object>
+</objects>

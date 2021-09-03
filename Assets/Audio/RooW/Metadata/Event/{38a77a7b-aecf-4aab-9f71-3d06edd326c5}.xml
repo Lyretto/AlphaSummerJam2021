@@ -5,7 +5,7 @@
 			<value>FireballHitting</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{7ea46d5a-994b-4236-8781-ece1029247c3}</destination>
@@ -59,7 +59,7 @@
 			<destination>{f9bb2ea0-d97f-4da4-85f4-92eca5944560}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d5f998ff-07ad-4ed0-9afe-a199b1e44c1a}</destination>
+			<destination>{00c23bf4-6a03-4a3b-bc50-febe7fe901bb}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{2bae59a6-c7c3-4a72-9f00-2e6b95f49047}" />
@@ -90,7 +90,11 @@
 			<destination>{27d0896b-37c2-4919-bace-ece3ea1f2ee0}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{5eeef13f-bdfd-4453-b175-0f01d3ae5930}" />
+	<object class="MultiSound" id="{5eeef13f-bdfd-4453-b175-0f01d3ae5930}">
+		<relationship name="sounds">
+			<destination>{ebb78973-ff0e-433d-88d7-87b8d4753043}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{dd58247a-0ac2-41ec-9372-c4b4d686faa4}">
 		<relationship name="effects">
 			<destination>{7a9950ed-d9fa-471a-807b-031d3944c722}</destination>
@@ -117,6 +121,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{2d62b852-f6a9-4cf7-b8e9-d85a1be05dfb}" />
+	<object class="SingleSound" id="{ebb78973-ff0e-433d-88d7-87b8d4753043}">
+		<relationship name="audioFile">
+			<destination>{ae9892fc-a57f-459f-af88-4668445575e9}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{7a9950ed-d9fa-471a-807b-031d3944c722}" />
 	<object class="MixerBusEffectChain" id="{2d49bb2a-8f17-40d6-9c1a-c1df654ef061}">
 		<relationship name="effects">

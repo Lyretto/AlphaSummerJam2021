@@ -6,7 +6,7 @@ using UnityEngine;
 
 public enum SoundEvent
 {
-    SPELLFAILED, FIREBALLHITTING, ICEBALLHITTING, HEALSPELL, DEATH
+    SPELLFAILED, FIREBALLHITTING, ICEBALLHITTING, HEALSPELL, DEATH, SPELLSUCCESS
 }
 
 public class SoundManager : MonoBehaviour
@@ -18,6 +18,9 @@ public class SoundManager : MonoBehaviour
     
     public bool fmod = true;
 
+    public GameObject FireBallSound;
+    public GameObject Music;
+
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -28,6 +31,7 @@ public class SoundManager : MonoBehaviour
         {
             _instance = this;
         }
+        Music.SetActive(true);
     }
     public void PauseSounds(bool paused)
     {

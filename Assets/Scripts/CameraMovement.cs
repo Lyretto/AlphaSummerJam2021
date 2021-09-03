@@ -10,12 +10,8 @@ namespace Assets.Scripts
 
         void Update()
         {
-            // Berechnet den Offset zwischen Kamera und Player
             Vector3 offset = transform.position - PlayerMovement.Instance.transform.position;
-            // legt eine Variable für die neue Kameraposition an
             Vector3 newCameraPosition = transform.position;
-            // bewegt die Kamera in x Richtung auf die Position des Players, falls der Offset zwischen beiden größer als $maxOffset ist
-            // nur in der Vorwärtsbewegung
             if (offset.x < -maxOffset)
                 newCameraPosition.x = PlayerMovement.Instance.transform.position.x - maxOffset;
 
@@ -23,7 +19,7 @@ namespace Assets.Scripts
                 newCameraPosition.x = PlayerMovement.Instance.transform.position.x + maxOffset;
 
             if (offset.y > maxOffset-1)
-                newCameraPosition.y = PlayerMovement.Instance.transform.position.y + maxOffset;
+                newCameraPosition.y = PlayerMovement.Instance.transform.position.y - maxOffset;
 
             if (offset.y > maxOffset-1)
                 newCameraPosition.y = PlayerMovement.Instance.transform.position.y + maxOffset;

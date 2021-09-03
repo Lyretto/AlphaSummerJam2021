@@ -53,6 +53,7 @@ public class SpellManager : MonoBehaviour
         {
             letters -= spellName.Length;
             Instantiate(possibleSpell, PlayerMovement.Instance.transform.position + Vector3.right, Quaternion.identity);
+            SoundManager.Instance.PlayOneShot(SoundEvent.SPELLSUCCESS);
         }
         else
         {

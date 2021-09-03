@@ -29,6 +29,8 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
             onMouseButtonDown.Invoke();
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+            UIManager.Instance.Pause();
     }
 
     public void CastSpell(UnityAction targetEvent)
