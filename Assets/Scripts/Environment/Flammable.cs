@@ -60,4 +60,19 @@ public class Flammable : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Fire"))
+        {
+            burning = true;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.transform.CompareTag("Ice"))
+        {
+            burning = false;
+            Destroy(collision.gameObject);
+        }
+    }
 }
