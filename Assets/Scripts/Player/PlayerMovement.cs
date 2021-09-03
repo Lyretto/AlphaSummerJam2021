@@ -62,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         characterAnimator.SetFloat("Speed", rb.velocity.sqrMagnitude);
-        
+        characterAnimator.SetFloat("Vertical", rb.velocity.y);
+        characterAnimator.SetBool("isGrounded", isGrounded());
+        Debug.Log(rb.velocity.y);
     }
 
     bool isGrounded()
