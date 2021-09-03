@@ -16,13 +16,11 @@ namespace Assets.Scripts.Casting.Spells
 
         // Use this for initialization
         void Awake() {
-            Debug.Log(target);
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
-            //sB.spellStartEvent.AddListener(StartSpell);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             if (started)
             {
@@ -32,12 +30,10 @@ namespace Assets.Scripts.Casting.Spells
 
         public void StartSpell()
         {
-            Debug.Log("start Fireball");
             Destroy(this.gameObject, waitTime);
             //START Fireball waiting sound
             CancelInvoke();
-            Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
-            //SET NEW CROSSHAIR
+            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
             InputManager.Instance.CastSpell(SetTarget);
         }
 
@@ -45,8 +41,8 @@ namespace Assets.Scripts.Casting.Spells
         {
             started = true;
             InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
-
-            Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
+            InputManager.Instance.canMove = true;
+            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
 
             Destroy(this.gameObject, lifeTime);
             // Stop Fireball waiting sound

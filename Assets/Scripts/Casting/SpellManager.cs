@@ -23,6 +23,7 @@ public class SpellManager : MonoBehaviour
         {
             _instance = this;
         }
+        Time.timeScale = 1;
     }
 
     private void Update()
