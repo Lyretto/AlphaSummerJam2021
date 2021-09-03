@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SpellManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> SpellPrefabs;
-    [SerializeField] private Text CastLeftText;
+    [SerializeField] private List<Text> CastLeftText;
     [SerializeField] private GameObject SpellMenu;
     public int letters = 50;
     // Start is called before the first frame update
@@ -26,6 +26,10 @@ public class SpellManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    private void Start()
+    {
+        CastLeftText.ForEach(t => t.text = letters.ToString());
+    }
     private void Update()
     {
         if (Input.GetKey(KeyCode.E) && !SpellMenu.activeSelf)
@@ -48,7 +52,7 @@ public class SpellManager : MonoBehaviour
         if(possibleSpell != null)
         {
             letters -= spellName.Length;
-            Instantiate(possibleSpell, PlayerMovement.Instance.transform.position, Quaternion.identity);
+            Instantiate(possibleSpell, PlayerMovement.Instance.transform.position + Vector3.right, Quaternion.identity);
         }
         else
         {
@@ -60,7 +64,7 @@ public class SpellManager : MonoBehaviour
 
     public void UpdateLettersLeft(int actuelLength = 0)
     {
-        CastLeftText.text = "Letters left: " + (letters - actuelLength).ToString();
+        CastLeftText.ForEach(t => t.text = (letters - actuelLength).ToString());
     }
 
     public void ToggleMenu()

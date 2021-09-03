@@ -10,6 +10,22 @@ public class Player : MonoBehaviour
     public int lifes;
     public int maxLifes;
 
+
+    private static Player _instance;
+    public static Player Instance { get { return _instance; } }
+
+    void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
+
     private void Start()
     {
         maxLifes = hearts.Count;
@@ -21,17 +37,25 @@ public class Player : MonoBehaviour
         hearts.ForEach((h) => h.SetActive( int.Parse(h.name) <= lifes));
     }
 
+    public void Die()
+    {
+        SoundManager.Instance.PlayOneShot(SoundEvent.DEATH);
+        // TODO OPEN LOSE SCREEN 
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Killzone"))
         {
             if (lifes <= 0)
-                Debug.Log("Game over");
-        }
-        else
-        {
-            //TODO RESET POSITION
-            ChangeLifes(-1);
+            {
+                Die();
+            }
+            else
+            {
+                transform.position = new Vector3(0f, 0f, 0f); // TODO SPawnPoint
+                ChangeLifes(-1);
+            }
         }
     }
 }

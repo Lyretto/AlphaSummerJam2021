@@ -49,14 +49,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Platform"))
+        if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)
         {
             isGrounded = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Platform"))
+        if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)
         {
             isGrounded = true;
         }
