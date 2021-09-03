@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 393131519}
   - component: {fileID: 393131518}
   - component: {fileID: 393131517}
+  - component: {fileID: 393131520}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -291,6 +292,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393131520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393131516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b2b54c16d14d743870fbe93ccce829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxOffset: 3
 --- !u!1 &499493625 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7604174796008008593, guid: 89cd51a4fbcca174396c0ea42d81a8da, type: 3}
@@ -1163,6 +1177,22 @@ PrefabInstance:
     - target: {fileID: 1268846535437402950, guid: 6fbc503c36ca3044a892ccc4642bc6cd, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268846535437403004, guid: 6fbc503c36ca3044a892ccc4642bc6cd, type: 3}
+      propertyPath: m_GravityScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268846535437403005, guid: 6fbc503c36ca3044a892ccc4642bc6cd, type: 3}
+      propertyPath: jumpForce
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268846535437403005, guid: 6fbc503c36ca3044a892ccc4642bc6cd, type: 3}
+      propertyPath: movementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268846535437403005, guid: 6fbc503c36ca3044a892ccc4642bc6cd, type: 3}
+      propertyPath: jumpmovementSpeed
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fbc503c36ca3044a892ccc4642bc6cd, type: 3}
