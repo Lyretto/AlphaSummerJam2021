@@ -1635,6 +1635,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7375945063236249563, guid: 2f79830415ed55141aae1d0d9c589e11, type: 3}
+      propertyPath: SpellPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375945063236249563, guid: 2f79830415ed55141aae1d0d9c589e11, type: 3}
       propertyPath: CastLeftText.Array.data[0]
       value: 
       objectReference: {fileID: 1105338932}
@@ -1642,6 +1646,10 @@ PrefabInstance:
       propertyPath: CastLeftText.Array.data[1]
       value: 
       objectReference: {fileID: 169911350}
+    - target: {fileID: 7375945063236249563, guid: 2f79830415ed55141aae1d0d9c589e11, type: 3}
+      propertyPath: SpellPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2274334099846288826, guid: c90a674875890444cbee06e0776ee469, type: 3}
     - target: {fileID: 7375945063605723713, guid: 2f79830415ed55141aae1d0d9c589e11, type: 3}
       propertyPath: m_Name
       value: Manager

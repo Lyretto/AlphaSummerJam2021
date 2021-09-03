@@ -4,14 +4,11 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts.Casting.Spells
 {
-    public class Heal : MonoBehaviour
+    public class SpellTemplate : MonoBehaviour
     {
-        public int healedLifes = 2;
-        //Heilt X Leben ( 2)
-        // Use this for initialization
+
         void Start()
         {
-
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
             sB.spellStartEvent.AddListener(StopSpell);
@@ -19,8 +16,7 @@ namespace Assets.Scripts.Casting.Spells
 
         public void StartSpell()
         {
-            SoundManager.Instance.PlayOneShot(SoundEvent.HEALSPELL);
-            Player.Instance.lifes += healedLifes;
+
         }
         public void StopSpell()
         {

@@ -4,10 +4,10 @@ using UnityEngine.Events;
 
 namespace Assets.Scripts.Casting.Spells
 {
-    public class SpellTemplate : MonoBehaviour
+    public class Heal : MonoBehaviour
     {
-
-        // Use this for initialization
+        public int healedLifes = 2;
+        //Heilt X Leben ( 2)
         void Start()
         {
 
@@ -18,7 +18,8 @@ namespace Assets.Scripts.Casting.Spells
 
         public void StartSpell()
         {
-
+            SoundManager.Instance.PlayOneShot(SoundEvent.HEALSPELL);
+            Player.Instance.ChangeLifes(healedLifes);
         }
         public void StopSpell()
         {
