@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
-    public float movementSpeed = 5f;
-    public float jumpmovementSpeed = 2f;
-    public float jumpForce = 5f;
+    public float movementSpeed = 3f;
+    public float jumpmovementSpeedModifier = 0.5f;
+    public float jumpForce = 7.5f;
     private Rigidbody2D rb;
     //private bool isGrounded = false;
     BoxCollider2D boxCollider;
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 velocity = new Vector2();
             Debug.Log(rb.velocity.x + " || " + (Input.GetAxis("Horizontal") * movementSpeed) / 2f);
-            velocity.x = isGrounded() ? (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) / 2f : (rb.velocity.x + Input.GetAxis("Horizontal") * jumpmovementSpeed)/2f;
+            velocity.x = isGrounded() ? (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) / 2f : (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed - jumpmovementSpeedModifier) /2f;
             velocity.y = rb.velocity.y;
             rb.velocity = velocity;
             
