@@ -22,6 +22,16 @@ namespace Assets.Scripts.Casting.Spells
 
         private void FixedUpdate()
         {
+            Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector3 lookAt = mouseScreenPosition;
+
+            float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
+
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
+
+            this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+
             if (started)
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f * speed);

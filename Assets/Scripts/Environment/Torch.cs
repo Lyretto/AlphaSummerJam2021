@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Torch : MonoBehaviour
 {
+    Animator torchAnimator;
     public List<GameObject> objectsToDeactivate = new List<GameObject>();
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
     {
-        if (collision.transform.CompareTag("Fire")) { 
-            Activate();
-            Destroy(collision.gameObject);
-        }
+        torchAnimator = GetComponent<Animator>();
+        torchAnimator.SetBool("isBurning", false);
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.transform.CompareTag("Fire")) { 
+    //        Activate();
+    //        Destroy(collision.gameObject);
+    //    }
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -30,6 +37,7 @@ public class Torch : MonoBehaviour
 
         //Example Deactive Platform
         objectsToDeactivate.ForEach((o) => o.SetActive(false));
+        torchAnimator.SetBool("isBurning", true);
     }
 
     public void Dectivate()
@@ -38,6 +46,7 @@ public class Torch : MonoBehaviour
 
         //Example Deactive Platform
         objectsToDeactivate.ForEach((o) => o.SetActive(true));
+        torchAnimator.SetBool("isBurning", false);
     }
 
 }
