@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject pauseMenu;
 
+    [SerializeField] Slider musicSlider;
+    [SerializeField] Slider soundSlider;
 
     private static UIManager _instance;
+    private FMOD.Studio.Bus musicBus;
+    private FMOD.Studio.Bus eventBus;
+
     public static UIManager Instance { get { return _instance; } }
 
     void Awake()
@@ -20,6 +26,24 @@ public class UIManager : MonoBehaviour
         else
         {
             _instance = this;
+        }
+    }
+
+    private void Start()
+    {
+
+        musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Music");
+        eventBus = FMODUnity.RuntimeManager.GetBus("bus:/Sound");
+
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            musicBus.setVolume(musicSlider.value);
+        }
+        if (PlayerPrefs.HasKey("SoundVolume"))
+        {
+            soundSlider.value = PlayerPrefs.GetFloat("SoundVolume");
+            eventBus.setVolume(soundSlider.value);
         }
     }
 
@@ -72,5 +96,13 @@ public class UIManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+    public void ApplySettings()
+    {
+        musicBus.setVolume(musicSlider.value);
+        eventBus.setVolume(soundSlider.value);
+
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
+        PlayerPrefs.SetFloat("SoundVolume", soundSlider.value);
     }
 }
