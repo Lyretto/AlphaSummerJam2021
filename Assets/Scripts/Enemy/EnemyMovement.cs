@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private bool mustFlip;
     public bool mustPatrol;
+    [HideInInspector] public bool canMove = true;
     public Rigidbody2D rb; 
     public float walkSpeed;
     public Transform groundCheckPos;
@@ -21,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (mustPatrol) Patrol();
+        if (mustPatrol && canMove) Patrol();
     }
 
     private void FixedUpdate()

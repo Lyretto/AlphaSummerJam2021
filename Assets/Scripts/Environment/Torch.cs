@@ -10,15 +10,16 @@ public class Torch : MonoBehaviour
     {
         if (collision.transform.CompareTag("Fire")) { 
             Activate();
+            Destroy(collision.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
         if (collision.transform.CompareTag("Fire"))
         {
             Activate();
+            Destroy(collision.gameObject);
         }
     }
 

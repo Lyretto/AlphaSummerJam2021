@@ -13,6 +13,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healedLifes: 2
+--- !u!114 &6932737960827424367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274334099846288826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b92a0fa6dcbfb9478e0b33643db784c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  spellEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2981069711864427592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +86,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heal
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 395224795746251401, guid: f8034e3671cae4f4ab7095cda13c5f1d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f8034e3671cae4f4ab7095cda13c5f1d, type: 3}
 --- !u!1 &2274334099846288826 stripped
 GameObject:

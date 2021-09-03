@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mustPatrol: 1
+  canMove: 1
   rb: {fileID: 1741975624976730773}
   walkSpeed: 2
   groundCheckPos: {fileID: 6413694801805799101}
@@ -106,6 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e522bfc49a5bb648892f15e16c4b071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 9
+  freezeTime: 0
+  burningDamage: 0
+  freezeDamage: 0
 --- !u!1 &5875865978021380003
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,8 +179,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1365210935
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 0.8301887, g: 0.30936277, b: 0.30936277, a: 1}
@@ -256,8 +261,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1365210935
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: bd3cb4af8406d4436a2ae8c2aafe1f8d, type: 3}
   m_Color: {r: 0.8867924, g: 0.4141153, b: 0.4141153, a: 1}

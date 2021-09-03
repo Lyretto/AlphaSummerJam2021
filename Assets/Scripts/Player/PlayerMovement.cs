@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 5f;
     public float jumpForce = 5f;
     private Rigidbody2D rb;
-    private bool isGrounded = false;
+    //private bool isGrounded = false;
+    BoxCollider2D boxCollider;
+    [SerializeField] LayerMask platformLayer;
+    Animator characterAnimator;
 
     private static PlayerMovement _instance;
     public static PlayerMovement Instance { get { return _instance; } }
@@ -28,6 +31,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        characterAnimator = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
@@ -38,27 +43,45 @@ public class PlayerMovement : MonoBehaviour
             velocity.x = Input.GetAxis("Horizontal") * movementSpeed;
             velocity.y = rb.velocity.y;
             rb.velocity = velocity;
-
-            if (Input.GetButtonDown("Jump") && isGrounded)
+            
+            if (Input.GetButtonDown("Jump") && isGrounded()/*isGrounded*/)
             {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-                isGrounded = false;
+                //isGrounded = false;
             }
         }
+        if(Input.GetAxis("Horizontal") > 0)
+        {
+            characterAnimator.SetFloat("Horizontal", 1);
+        }
+
+        if(Input.GetAxis("Horizontal") < 0)
+        {
+            characterAnimator.SetFloat("Horizontal", -1);
+        }
+
+        characterAnimator.SetFloat("Speed", rb.velocity.sqrMagnitude);
+        
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    bool isGrounded()
     {
-        if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)
-        {
-            isGrounded = false;
-        }
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.down, .1f, platformLayer);
+        return hit.collider != null;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)
-        {
-            isGrounded = true;
-        }
-    }
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)
+    //    {
+    //        isGrounded = true;
+    //    }
+    //}
 }
