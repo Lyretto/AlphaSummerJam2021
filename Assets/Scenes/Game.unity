@@ -1156,6 +1156,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1159348939073509008, guid: 59364fcca6db0ae4994431ac583b0447, type: 3}
+      propertyPath: Music
+      value: 
+      objectReference: {fileID: 739766928}
+    - target: {fileID: 1159348939073509008, guid: 59364fcca6db0ae4994431ac583b0447, type: 3}
+      propertyPath: FireBallSound
+      value: 
+      objectReference: {fileID: 1115691542}
+    - target: {fileID: 1159348939073509008, guid: 59364fcca6db0ae4994431ac583b0447, type: 3}
       propertyPath: audioClips.events.Array.size
       value: 6
       objectReference: {fileID: 0}
