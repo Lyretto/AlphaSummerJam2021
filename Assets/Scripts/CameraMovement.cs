@@ -22,7 +22,13 @@ namespace Assets.Scripts
             if (offset.x > maxOffset)
                 newCameraPosition.x = PlayerMovement.Instance.transform.position.x + maxOffset;
 
-            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(Mathf.Max(0, newCameraPosition.x), 0, -10f), ref refVelocity, 0.2f);
+            if (offset.y > maxOffset-1)
+                newCameraPosition.y = PlayerMovement.Instance.transform.position.y + maxOffset;
+
+            if (offset.y > maxOffset-1)
+                newCameraPosition.y = PlayerMovement.Instance.transform.position.y + maxOffset;
+
+            transform.position = Vector3.SmoothDamp(transform.position, new Vector3(Mathf.Max(0, newCameraPosition.x), Mathf.Max(0, newCameraPosition.y), -10f), ref refVelocity, 0.2f);
         }
     }
 }

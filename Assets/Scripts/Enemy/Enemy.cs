@@ -46,8 +46,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.transform.CompareTag("Killzone"))
             Destroy(this.gameObject);
-        
-            
+        if (collision.transform.CompareTag("Player"))
+            Player.Instance.ChangeLifes(-1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

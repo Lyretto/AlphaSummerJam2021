@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Spells: \n\tFireball\n\tIceball\n\tHeal"
+  m_Text: "Spells: \n\tFireball\n\tIceball\n\tHeal\n\tJump\n\tRun"
 --- !u!1 &6377121412316853467
 GameObject:
   m_ObjectHideFlags: 0
