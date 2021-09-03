@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     public float movementSpeed = 5f;
+    public float jumpmovementSpeed = 2f;
     public float jumpForce = 5f;
     private Rigidbody2D rb;
     //private bool isGrounded = false;
@@ -40,11 +41,12 @@ public class PlayerMovement : MonoBehaviour
         if (InputManager.Instance.canMove)
         {
             Vector2 velocity = new Vector2();
-            velocity.x = Input.GetAxis("Horizontal") * movementSpeed;
+            Debug.Log(rb.velocity.x + " || " + (Input.GetAxis("Horizontal") * movementSpeed) / 2f);
+            velocity.x = isGrounded() ? (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) / 2f : (rb.velocity.x + Input.GetAxis("Horizontal") * jumpmovementSpeed)/2f;
             velocity.y = rb.velocity.y;
             rb.velocity = velocity;
             
-            if (Input.GetButtonDown("Jump") && isGrounded()/*isGrounded*/)
+            if (Input.GetButtonDown("Jump") && isGrounded())
             {
                 rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 //isGrounded = false;
