@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
 {
     Vector3 mousePos;
     [HideInInspector] public UnityEvent onMouseButtonDown = new UnityEvent();
+    public bool canMove = true;
     //[HideInInspector] public UnityEvent start
 
     private static InputManager _instance;
@@ -28,5 +29,11 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
             onMouseButtonDown.Invoke();
+    }
+
+    public void CastSpell(UnityAction targetEvent)
+    {
+        canMove = false;
+        onMouseButtonDown.AddListener(targetEvent);
     }
 }

@@ -38,7 +38,7 @@ namespace Assets.Scripts.Casting.Spells
             CancelInvoke();
             Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
             //SET NEW CROSSHAIR
-            InputManager.Instance.onMouseButtonDown.AddListener(SetTarget);
+            InputManager.Instance.CastSpell(SetTarget);
         }
 
         public void SetTarget()

@@ -31,6 +31,7 @@ public class SpellManager : MonoBehaviour
         {
             UpdateLettersLeft();
             StartSpell();
+            Time.timeScale = 0;
         }
     }
 
@@ -46,12 +47,13 @@ public class SpellManager : MonoBehaviour
         if(possibleSpell != null)
         {
             letters -= spellName.Length;
-            Instantiate(possibleSpell, new Vector3(0f,0f,0f), Quaternion.identity);
+            Instantiate(possibleSpell, PlayerMovement.Instance.transform.position, Quaternion.identity);
         }
         else
         {
             SoundManager.Instance.PlayOneShot(SoundEvent.SPELLFAILED);
         }
+        Time.timeScale = 1;
         ToggleMenu();
     }
 
