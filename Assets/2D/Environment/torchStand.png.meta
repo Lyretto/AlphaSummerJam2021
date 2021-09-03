@@ -14,30 +14,6 @@ TextureImporter:
   - first:
       213: -1807337217291892768
     second: torchStand_3
-  - first:
-      213: 7472844802758581305
-    second: torchStand_4
-  - first:
-      213: 8723891765532621062
-    second: torchStand_5
-  - first:
-      213: 6834220695589075526
-    second: torchStand_6
-  - first:
-      213: 2309375852454950548
-    second: torchStand_7
-  - first:
-      213: -8197813480282396274
-    second: torchStand_8
-  - first:
-      213: -5239272661577926322
-    second: torchStand_9
-  - first:
-      213: 7394782060521887763
-    second: torchStand_10
-  - first:
-      213: 1009807180491769153
-    second: torchStand_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -82,7 +58,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -151,13 +127,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: torchStand_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 169
+        width: 160
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0f0ab3f773b65cb0800000000000000
+      internalID: -4875512218810446066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: torchStand_1
       rect:
         serializedVersion: 2
-        x: 434
-        y: 334
-        width: 101
-        height: 280
+        x: 160
+        y: 169
+        width: 160
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +172,10 @@ TextureImporter:
       name: torchStand_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 11
-        width: 101
-        height: 280
+        x: 0
+        y: 9
+        width: 160
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +193,10 @@ TextureImporter:
       name: torchStand_3
       rect:
         serializedVersion: 2
-        x: 434
+        x: 160
         y: 10
-        width: 101
-        height: 280
+        width: 160
+        height: 151
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

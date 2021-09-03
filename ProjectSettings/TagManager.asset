@@ -8,6 +8,10 @@ TagManager:
   - Killzone
   - Fire
   - Ice
+  - Gravity
+  - Air
+  - Stun
+  - Rock
   layers:
   - Default
   - TransparentFX
