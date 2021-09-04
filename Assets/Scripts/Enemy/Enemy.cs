@@ -156,6 +156,7 @@ public class Enemy : MonoBehaviour
     void takeDamage(int amount)
     {
         health -= amount;
+        enemyAnimator.SetTrigger("Hit");
     }
 
     void die()
@@ -165,6 +166,7 @@ public class Enemy : MonoBehaviour
 
     void Shoot()
     {
+        enemyAnimator.SetTrigger("Attack");
         GameObject bullet = Instantiate(bulletPrefab, transform.position + (Vector3.Normalize(Player.Instance.transform.position - transform.position)), Quaternion.identity);
     }
 }

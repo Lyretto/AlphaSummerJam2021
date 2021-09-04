@@ -98,8 +98,9 @@ public class PlayerMovement : MonoBehaviour
         rb.bodyType = RigidbodyType2D.Kinematic;
         SpellManager.Instance.canSpell = false;
         this.doorExit = doorExit;
+        SoundManager.Instance.PlayOneShot(SoundEvent.LEVELDONE);
 
-        Invoke("GoToMenu", 1.5f);
+       Invoke("GoToMenu", 1.5f);
     }
 
     public void GoToMenu()

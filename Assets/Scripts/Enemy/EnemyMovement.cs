@@ -14,16 +14,16 @@ public class EnemyMovement : MonoBehaviour
 
     public LayerMask groundLayer;
     public LayerMask wallLayer;
+
+    public Animator enemyAnimator;
+
+   
     // Start is called before the first frame update
     void Start()
     {
         mustPatrol = true;
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        if (mustPatrol && canMove) Patrol();
+        enemyAnimator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -32,11 +32,10 @@ public class EnemyMovement : MonoBehaviour
         {
             mustFlip = !Physics2D.OverlapCircle(groundCheckPos.position, 0.1f, groundLayer);
         }
-    }
-    private void Patrol()
-    {
         if (mustFlip) Flip();
-        rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
+
+        if (mustPatrol && canMove)  rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
+        enemyAnimator.SetFloat("movement", rb.velocity.x);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -9,10 +9,12 @@ public class LevelDoor : MonoBehaviour
 
     private void OnEnable()
     {
+        SoundManager.Instance.PlayOneShot(SoundEvent.OPENDOOR, (transform.position - Player.Instance.transform.position).sqrMagnitude < 10f ? 1f : 0.2f);
         doorAnimator.SetBool("Closed", false);
     }
     private void OnDisable()
     {
+        SoundManager.Instance.PlayOneShot(SoundEvent.CLOSEDOOR, (transform.position - Player.Instance.transform.position).sqrMagnitude < 10f ? 1f : 0.2f);
         doorAnimator.SetBool("Closed", true);
     }
 

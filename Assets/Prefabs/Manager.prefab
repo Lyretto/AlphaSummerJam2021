@@ -129,73 +129,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6677369221056111705}
-  - {fileID: 6677369221475612144}
+  - {fileID: 7350015510164152195}
   - {fileID: 6677369221897676752}
   - {fileID: 6161709667973996444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6677369221475612145
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6677369221475612144}
-  - component: {fileID: 6677369221475612147}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6677369221475612144
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6677369221475612145}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6677369221972910362}
-  m_Father: {fileID: 6677369221217837533}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6677369221475612147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6677369221475612145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec20a7478d7e584eb3c4a85f1a0cb47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClips:
-    events:
-    - soundEvent: 1
-      eventName: event:/FireballHitting
-    - soundEvent: 0
-      eventName: event:/SpellFailed
-    - soundEvent: 2
-      eventName: event:/IceHitting
-    - soundEvent: 5
-      eventName: event:/SpellSuccess
-    - soundEvent: 2
-      eventName: event:/IceHitting
-    - soundEvent: 2
-      eventName: event:/IceHitting
-  fmod: 1
-  FireBallSound: {fileID: 6677369221972910363}
-  Music: {fileID: 0}
 --- !u!1 &6677369221897676753
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,57 +182,65 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   canMove: 1
---- !u!1 &6677369221972910363
-GameObject:
+--- !u!1001 &3474485232161197826
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6677369221972910362}
-  - component: {fileID: 6677369221972910357}
-  m_Layer: 0
-  m_Name: FireballMoving
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6677369221972910362
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6677369221217837533}
+    m_Modifications:
+    - target: {fileID: 6212532904509902976, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+--- !u!4 &7350015510164152195 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 6212532904509902977, guid: 50c50b60b6932e64faa2c1be3833ebc3, type: 3}
+  m_PrefabInstance: {fileID: 3474485232161197826}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6677369221972910363}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6677369221475612144}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6677369221972910357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6677369221972910363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/FireballMoving
-  PlayEvent: 11
-  StopEvent: 12
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
