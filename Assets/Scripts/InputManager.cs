@@ -35,7 +35,6 @@ public class InputManager : MonoBehaviour
 
     public void CastSpell(UnityAction targetEvent)
     {
-        canMove = false;
         onMouseButtonDown.AddListener(targetEvent);
     }
 }

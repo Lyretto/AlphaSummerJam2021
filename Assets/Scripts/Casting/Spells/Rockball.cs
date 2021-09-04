@@ -36,6 +36,10 @@ namespace Assets.Scripts.Casting.Spells
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f * speed);
             }
+            else
+            {
+                transform.position = PlayerMovement.Instance.transform.position;
+            }
         }
 
         public void StartSpell()
@@ -51,7 +55,6 @@ namespace Assets.Scripts.Casting.Spells
         {
             started = true;
             InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
-            InputManager.Instance.canMove = true;
             //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
 
             Destroy(this.gameObject, lifeTime);

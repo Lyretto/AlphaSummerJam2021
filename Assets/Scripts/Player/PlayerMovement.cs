@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (InputManager.Instance.canMove)
         {
             Vector2 velocity = new Vector2();
-            velocity.x = isGrounded() ? (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) / 2f : (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed - jumpmovementSpeedModifier) /2f;
+            velocity.x = isGrounded() ? (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) / 2f : (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) /2f;
             velocity.y = rb.velocity.y;
             rb.velocity = velocity;
             
@@ -61,10 +61,18 @@ public class PlayerMovement : MonoBehaviour
             characterAnimator.SetFloat("Horizontal", -1);
         }
 
+
+        if (rb.velocity.y > 0)
+        {
+            characterAnimator.SetFloat("Vertical",1);
+        }
+        if (rb.velocity.y < 0)
+        {
+            characterAnimator.SetFloat("Vertical", -1);
+        }
+
         characterAnimator.SetFloat("Speed", rb.velocity.sqrMagnitude);
-        characterAnimator.SetFloat("Vertical", rb.velocity.y);
         characterAnimator.SetBool("isGrounded", isGrounded());
-        Debug.Log(rb.velocity.y);
     }
 
     bool isGrounded()

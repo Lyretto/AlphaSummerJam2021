@@ -28,13 +28,12 @@ public class TextfieldInputManager : MonoBehaviour
     public void CheckFinalInput()
     {
         string possibleSpell = iF.text;
-        Debug.Log("Try to cast Spell named: " + possibleSpell);
         SpellManager.Instance.TryCastSpell(possibleSpell);
     }
 
     public void CheckInput()
     {
-        Debug.Log(SpellManager.Instance.letters + 1);
+        iF.text = iF.text.ToUpper();
         if (iF.text.Length >= SpellManager.Instance.letters + 1)
         {
             Debug.Log("Remove last letter from : "+ iF.text);

@@ -47,7 +47,7 @@ public class SpellManager : MonoBehaviour
 
     public void TryCastSpell(string spellName)
     {
-        GameObject possibleSpell = SpellPrefabs?.Find((spell) => spell.name == spellName) ?? null;
+        GameObject possibleSpell = SpellPrefabs?.Find((spell) => spell.name.ToUpper() == spellName) ?? null;
         
         if(possibleSpell != null)
         {

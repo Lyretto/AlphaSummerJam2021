@@ -51,7 +51,6 @@ namespace Assets.Scripts.Casting.Spells
         {
             started = true;
             InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
-            InputManager.Instance.canMove = true;
             //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
 
             Destroy(this.gameObject, lifeTime);

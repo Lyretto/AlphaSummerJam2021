@@ -39,7 +39,7 @@ public class Freezable : MonoBehaviour
         if (collision.transform.CompareTag("Fire"))
         {
             freezed = false;
-            Destroy(collision.gameObject);
+            collision.GetComponent<FireBall>().Explosion();
         }
     }
 }

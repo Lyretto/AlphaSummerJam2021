@@ -51,7 +51,7 @@ public class Flammable : MonoBehaviour
         if (collision.transform.CompareTag("Fire"))
         {
             burning = true;
-            Destroy(collision.gameObject);
+            collision.GetComponent<FireBall>().Explosion();
         }
 
         if (collision.transform.CompareTag("Ice"))
@@ -66,7 +66,7 @@ public class Flammable : MonoBehaviour
         if (collision.transform.CompareTag("Fire"))
         {
             burning = true;
-            Destroy(collision.gameObject);
+            collision.transform.GetComponent<FireBall>().Explosion();
         }
 
         if (collision.transform.CompareTag("Ice"))

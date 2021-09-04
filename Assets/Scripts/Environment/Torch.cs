@@ -6,7 +6,7 @@ public class Torch : MonoBehaviour
 {
     Animator torchAnimator;
     public List<GameObject> objectsToDeactivate = new List<GameObject>();
-    GameObject light;
+    private GameObject light;
 
     private void Start()
     {
@@ -16,41 +16,28 @@ public class Torch : MonoBehaviour
         light.SetActive(false);
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.transform.CompareTag("Fire")) { 
-    //        Activate();
-    //        Destroy(collision.gameObject);
-    //    }
-    //}
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Fire"))
         {
-            Activate();
-            Destroy(collision.gameObject);
+            if (!light.activeSelf)
+            {
+                Activate();
+                collision.gameObject.GetComponent<FireBall>().Explosion();
+            }
         }
-
     }
-
 
     public void Activate()
     {
-        //Set Other Sprite and disable Fog/enable Light
-
-        //Example Deactive Platform
-        objectsToDeactivate.ForEach((o) => o.SetActive(false));
+        objectsToDeactivate.ForEach((o) => o.SetActive(!o.activeSelf));
         light.SetActive(true);
         torchAnimator.SetBool("isBurning", true);
     }
 
     public void Dectivate()
     {
-        //Set Other Sprite and disable Fog/enable Light
-
-        //Example Deactive Platform
-        objectsToDeactivate.ForEach((o) => o.SetActive(true));
+        objectsToDeactivate.ForEach((o) => o.SetActive(!o.activeSelf));
         light.SetActive(false);
         torchAnimator.SetBool("isBurning", false);
     }

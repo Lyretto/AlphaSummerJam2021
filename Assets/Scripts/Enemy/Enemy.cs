@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     float currentFreezeTime;
     bool freeze = false;
     SpriteRenderer enemySr;
+    private bool isInKillzone = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,13 +26,12 @@ public class Enemy : MonoBehaviour
         if (currentFreezeTime >= 0 && freeze)
         {
             currentFreezeTime -= Time.deltaTime;
-            enemyRb.bodyType = RigidbodyType2D.Dynamic;
             GetComponent<EnemyMovement>().canMove = false;
             if (currentFreezeTime <= 0)
             {
+                if (isInKillzone) Destroy(gameObject);
                 freeze = false;
                 currentFreezeTime = freezeTime;
-                enemyRb.bodyType = RigidbodyType2D.Kinematic;
                 GetComponent<EnemyMovement>().canMove = true;
             }
         }
@@ -63,7 +63,25 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Angebrannt");
             takeDamage(burningDamage);
-            Destroy(collision.gameObject);
+            collision.GetComponent<FireBall>().Explosion();
+        }
+        if (collision.CompareTag("Killzone"))
+        {
+            if (!freeze)
+                Destroy(gameObject);
+            isInKillzone = true;
+        }
+        if (collision.CompareTag("GroundKillzone"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Killzone"))
+        {
+            isInKillzone = false;
         }
     }
 

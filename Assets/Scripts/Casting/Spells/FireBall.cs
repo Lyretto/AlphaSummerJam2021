@@ -2,25 +2,24 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts.Casting.Spells
+public class FireBall : MonoBehaviour
 {
-    public class FireBall : MonoBehaviour
+
+    [SerializeField] private float lifeTime = 3;
+    [SerializeField] private float waitTime = 5;
+    [SerializeField] private float speed = 4;
+    private Vector3 target = new Vector3();
+    private bool started = false;
+
+    // Use this for initialization
+    void Awake() {
+        SpellBase sB = GetComponent<SpellBase>();
+        sB.spellStartEvent.AddListener(StartSpell);
+    }
+
+    private void FixedUpdate()
     {
-
-        [SerializeField] private float lifeTime = 3;
-        [SerializeField] private float waitTime = 5;
-        [SerializeField] private float speed = 4;
-        private Vector3 target = new Vector3();
-        private bool started = false;
-        [SerializeField] private Sprite cursorFire;
-
-        // Use this for initialization
-        void Awake() {
-            SpellBase sB = GetComponent<SpellBase>();
-            sB.spellStartEvent.AddListener(StartSpell);
-        }
-
-        private void FixedUpdate()
+        if (started)
         {
             Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -28,43 +27,45 @@ namespace Assets.Scripts.Casting.Spells
 
             float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
 
-            float AngleDeg = (180 / Mathf.PI) *AngleRad;
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
 
             this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
-
-            if (started)
-            {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f * speed);
-            }
+            this.transform.position = Vector3.MoveTowards(this.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f * speed);
         }
-
-        public void StartSpell()
+        else
         {
-            Destroy(this.gameObject, waitTime);
-            //START Fireball waiting sound
-            CancelInvoke();
-            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
-            InputManager.Instance.CastSpell(SetTarget);
-            SoundManager.Instance.FireBallSound.SetActive(true);
+            transform.position = PlayerMovement.Instance.transform.position;
         }
+    }
 
-        public void SetTarget()
-        {
-            started = true;
-            InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
-            InputManager.Instance.canMove = true;
-            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
+    public void StartSpell()
+    {
+        Destroy(this.gameObject, waitTime);
+        //START Fireball waiting sound
+        CancelInvoke();
+        //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
+        InputManager.Instance.CastSpell(SetTarget);
+        SoundManager.Instance.FireBallSound.SetActive(true);
+    }
 
-            Destroy(this.gameObject, lifeTime);
-            // Stop Fireball waiting sound
-            // Activate Fireball MOVING Sound
-        }
+    public void SetTarget()
+    {
+        started = true;
+        InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
+        Destroy(this.gameObject, lifeTime);
+    }
 
-        //DESTROY ON COLLISION
-        private void OnDestroy()
-        {
-            SoundManager.Instance.FireBallSound.SetActive(false);
-            SoundManager.Instance.PlayOneShot(SoundEvent.FIREBALLHITTING);
-        }
+    public void Explosion()
+    {
+        started = false;
+        GetComponentInChildren<Animator>().SetTrigger("Explosion");
+        Destroy(this.gameObject, 0.6f);
+        SoundManager.Instance.FireBallSound.SetActive(false);
+        SoundManager.Instance.PlayOneShot(SoundEvent.FIREBALLHITTING);
+    }
+
+    private void OnDestroy()
+    {
+        SoundManager.Instance.FireBallSound.SetActive(false);
     }
 }

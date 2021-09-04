@@ -10,10 +10,10 @@ public class Player : MonoBehaviour
     public List<GameObject> hearts = new List<GameObject>();
     public int lifes;
     public int maxLifes;
-    public GameObject HitMarker;
-
-
+    private SpriteRenderer sr;
+    private bool invincable = false;
     private static Player _instance;
+    public Vector3 spawnPoint = new Vector3(0f, 0f, 0f);
     public static Player Instance { get { return _instance; } }
 
     void Awake()
@@ -30,29 +30,35 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         maxLifes = hearts.Count;
         lifes = maxLifes;
     }
     public void ChangeLifes(int amount)
     {
-        lifes += amount;
-        hearts.ForEach((h) => h.SetActive( int.Parse(h.name) <= lifes));
-
-        if (amount < 0)
+        if(amount < 0)
         {
-            ToggleHitMarker();
-            Invoke("ToggleHitMarker",0.1f);
-        }
-        if(lifes < 0)
+            if (!invincable)
+            {
+                lifes += amount;
+                sr.color = new Color(0.4f, 0.05f, 0.05f, 1f);
+                invincable = true;
+                Invoke("ToggleHitMarker", 0.3f);
+            }
+        } else
+            lifes += amount;
+
+        if(lifes <= 0)
         {
             Die();
         }
-
+        hearts.ForEach((h) => h.SetActive(int.Parse(h.name) <= lifes));
     }
 
     public void ToggleHitMarker()
     {
-        HitMarker.SetActive(!HitMarker.activeSelf);
+        invincable = false;
+        sr.color = new Color(1f, 1f,1f, 1f);
     }
 
     public void Die()
@@ -65,15 +71,15 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Killzone"))
         {
-            if (lifes <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                transform.position = new Vector3(0f, 0f, 0f); // TODO SPawnPoint
-                ChangeLifes(-1);
-            }
+            transform.position = spawnPoint;
+            invincable = false;
+            ChangeLifes(-1);
+        }
+        if (collision.CompareTag("GroundKillzone"))
+        {
+            transform.position = spawnPoint;
+            invincable = false;
+            ChangeLifes(-1);
         }
     }
 }

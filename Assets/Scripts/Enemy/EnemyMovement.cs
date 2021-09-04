@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     public Collider2D bodyCollider;
 
     public LayerMask groundLayer;
+    public LayerMask wallLayer;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +35,15 @@ public class EnemyMovement : MonoBehaviour
     }
     private void Patrol()
     {
-        if (mustFlip || bodyCollider.IsTouchingLayers(groundLayer)) Flip();
+        if (mustFlip) Flip();
         rb.velocity = new Vector2(walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.gameObject.layer != groundLayer)
+            Flip();
+    }
 
 
     private void Flip()
