@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 943185021287422589}
   - component: {fileID: 943185021287422588}
   - component: {fileID: 943185021287422579}
-  - component: {fileID: 943185021287422590}
+  - component: {fileID: 3876703330259979768}
   m_Layer: 6
   m_Name: Barrel
   m_TagString: Untagged
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1954195003
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ce2306b25859713489220586ce9318ff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,24 +100,17 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.93957055, y: 1.1654999}
   m_Direction: 0
---- !u!50 &943185021287422590
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &3876703330259979768
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943185021287422578}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 10
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c886688ca8300439fac3e6b8dcd107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burning: 0
+  burningTime: 5

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 384641242077557002}
-  - component: {fileID: 395224795746251401}
   - component: {fileID: 625550615411501245}
   m_Layer: 0
   m_Name: SpellBase
@@ -32,24 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &395224795746251401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3949355381863457266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b92a0fa6dcbfb9478e0b33643db784c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellStartEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  spellEndEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!210 &625550615411501245
 SortingGroup:
   m_ObjectHideFlags: 0

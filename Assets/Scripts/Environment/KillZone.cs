@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.transform.tag != "Player") Destroy(collision.gameObject);
+        if(!collision.transform.CompareTag("Enemy") && !collision.transform.CompareTag("Player")) Destroy(collision.gameObject);
+
+        if (collision.transform.CompareTag("Enemy") && !collision.gameObject.GetComponent<Enemy>().freeze)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

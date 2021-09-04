@@ -72,3 +72,6 @@ TagManager:
   - name: Foreground
     uniqueID: 1954195003
     locked: 0
+  - name: Spells
+    uniqueID: 1482720331
+    locked: 0

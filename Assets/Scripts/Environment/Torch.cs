@@ -26,6 +26,15 @@ public class Torch : MonoBehaviour
                 collision.gameObject.GetComponent<FireBall>().Explosion();
             }
         }
+
+        if (collision.transform.CompareTag("Air"))
+        {
+            if (light.activeSelf)
+            {
+                Deactivate();
+                Destroy(collision.gameObject);
+            }
+        }
     }
 
     public void Activate()
@@ -35,7 +44,7 @@ public class Torch : MonoBehaviour
         torchAnimator.SetBool("isBurning", true);
     }
 
-    public void Dectivate()
+    public void Deactivate()
     {
         objectsToDeactivate.ForEach((o) => o.SetActive(!o.activeSelf));
         light.SetActive(false);
