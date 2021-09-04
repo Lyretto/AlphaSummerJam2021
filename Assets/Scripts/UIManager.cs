@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     private FMOD.Studio.Bus musicBus;
     private FMOD.Studio.Bus eventBus;
+    bool init = false;
 
     public static UIManager Instance { get { return _instance; } }
 
@@ -27,10 +28,6 @@ public class UIManager : MonoBehaviour
         {
             _instance = this;
         }
-    }
-
-    private void Start()
-    {
 
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Music");
         eventBus = FMODUnity.RuntimeManager.GetBus("bus:/Sound");
@@ -38,18 +35,20 @@ public class UIManager : MonoBehaviour
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
             musicBus.setVolume(PlayerPrefs.GetFloat("MusicVolume"));
+            Debug.Log("set music volume to: " + PlayerPrefs.GetFloat("MusicVolume"));
         }
         if (PlayerPrefs.HasKey("SoundVolume"))
         {
             eventBus.setVolume(PlayerPrefs.GetFloat("SoundVolume"));
         }
-
         if (soundSlider && musicSlider)
         {
             soundSlider.value = PlayerPrefs.GetFloat("SoundVolume");
             musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            init = true;
         }
     }
+
 
 
     public void Restart()
@@ -102,8 +101,10 @@ public class UIManager : MonoBehaviour
             Application.Quit();
         #endif
     }
+
     public void ApplySettings()
     {
+        if (!init) return;
         musicBus.setVolume(musicSlider.value);
         eventBus.setVolume(soundSlider.value);
 
