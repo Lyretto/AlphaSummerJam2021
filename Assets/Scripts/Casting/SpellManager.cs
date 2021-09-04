@@ -66,7 +66,7 @@ public class SpellManager : MonoBehaviour
 
     public void UpdateLettersLeft(int actuelLength = 0)
     {
-        CastLeftText.ForEach(t => t.text = (letters - actuelLength).ToString());
+        CastLeftText.ForEach(t => t.text ="Letters left\n" + (letters - actuelLength).ToString());
     }
 
     public void Addletters(int amount)
