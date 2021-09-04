@@ -10,6 +10,7 @@ public class FireBall : MonoBehaviour
     [SerializeField] private float speed = 4;
     private Vector3 target = new Vector3();
     private bool started = false;
+    bool ended;
 
     // Use this for initialization
     void Awake() {
@@ -19,6 +20,7 @@ public class FireBall : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (ended) return;
         if (started)
         {
             Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -57,7 +59,7 @@ public class FireBall : MonoBehaviour
 
     public void Explosion()
     {
-        started = false;
+        ended = true;
         GetComponentInChildren<Animator>().SetTrigger("Explosion");
         Destroy(this.gameObject, 0.6f);
         SoundManager.Instance.FireBallSound.SetActive(false);

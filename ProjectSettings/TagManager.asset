@@ -54,14 +54,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Plattforms
-    uniqueID: 1900029677
+  - name: EnvironmentBG
+    uniqueID: 3085816289
     locked: 0
   - name: Player
     uniqueID: 1866712191
     locked: 0
   - name: Enemies
     uniqueID: 1365210935
+    locked: 0
+  - name: EnvironmentFG
+    uniqueID: 966731313
+    locked: 0
+  - name: Plattforms
+    uniqueID: 1900029677
     locked: 0
   - name: Foreground
     uniqueID: 1954195003

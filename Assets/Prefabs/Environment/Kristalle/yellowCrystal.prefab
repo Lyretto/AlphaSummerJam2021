@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5832993889351204743}
   - component: {fileID: 1579315402557616702}
   m_Layer: 0
-  m_Name: blueCrystal
+  m_Name: yellowCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,10 +69,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 966731313
-  m_SortingLayer: 4
+  m_SortingLayerID: -1209151007
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12d746fdfe1965e448a570d6bab7902a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 92c88bb166ea8d54b89267d507477beb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,10 +129,10 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.66000855, b: 0.023584902, a: 1}
   m_Intensity: 1
   m_LightVolumeOpacity: 0.2
-  m_ApplyToSortingLayers: 7fc4436fe1d1edb737775f51ed26407131269f39
+  m_ApplyToSortingLayers: ed2640717fc4436f37775f51e1d1edb731269f39
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2724346124777995097}
   - component: {fileID: 2724346124777995102}
   - component: {fileID: 2724346124777995103}
-  - component: {fileID: 2724346124777995101}
   - component: {fileID: 2724346124777995100}
+  - component: {fileID: 52037686172531352}
   m_Layer: 6
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -100,32 +100,6 @@ MonoBehaviour:
   objectsToDeactivate: []
   enabledSprite: {fileID: -6025554343243793721, guid: 87730448938a260458512b8625ed22b4, type: 3}
   disabledSprite: {fileID: -368718826349097156, guid: 87730448938a260458512b8625ed22b4, type: 3}
---- !u!61 &2724346124777995101
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2724346124777995096}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0024365187, y: -0.1876266}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
-    newSize: {x: 1.6, y: 1.6}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.127279, y: 0.14284754}
-  m_EdgeRadius: 0
 --- !u!70 &2724346124777995100
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -141,4 +115,20 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.006701281, y: -0.087874085}
   m_Size: {x: 0.86523616, y: 0.24057418}
+  m_Direction: 1
+--- !u!70 &52037686172531352
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2724346124777995096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.016857306, y: -0.18296668}
+  m_Size: {x: 1.1601927, y: 0.21773437}
   m_Direction: 1

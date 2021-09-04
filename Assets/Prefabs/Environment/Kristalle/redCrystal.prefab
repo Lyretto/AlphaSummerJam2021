@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5832993889351204743}
   - component: {fileID: 1579315402557616702}
   m_Layer: 0
-  m_Name: blueCrystal
+  m_Name: redCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 966731313
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12d746fdfe1965e448a570d6bab7902a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51daa39c5ebe4c94db70273109f02330, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,20 +129,20 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_LightVolumeOpacity: 0.2
-  m_ApplyToSortingLayers: 7fc4436fe1d1edb737775f51ed26407131269f39
+  m_Color: {r: 0.9245283, g: 0.341279, b: 0.33579564, a: 1}
+  m_Intensity: 0.4
+  m_LightVolumeOpacity: 0.731
+  m_ApplyToSortingLayers: e1d1edb737775f517fc4436f31269f39ed264071
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
-  m_ShadowVolumeIntensity: 0
+  m_ShadowIntensity: 0.261
+  m_ShadowVolumeIntensity: 0.214
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 1
+  m_PointLightInnerRadius: 0.1
+  m_PointLightOuterRadius: 2
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

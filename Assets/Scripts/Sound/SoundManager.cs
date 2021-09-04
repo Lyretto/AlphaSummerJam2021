@@ -19,7 +19,6 @@ public class SoundManager : MonoBehaviour
     public bool fmod = true;
 
     public GameObject FireBallSound;
-    public GameObject Music;
 
     void Awake()
     {
@@ -31,7 +30,6 @@ public class SoundManager : MonoBehaviour
         {
             _instance = this;
         }
-        Music.SetActive(true);
     }
     public void PauseSounds(bool paused)
     {
