@@ -992,7 +992,7 @@ SortingGroup:
   m_GameObject: {fileID: 601264382}
   m_Enabled: 1
   m_SortingLayerID: 1900029677
-  m_SortingLayer: 3
+  m_SortingLayer: 5
   m_SortingOrder: 0
 --- !u!4 &605842655 stripped
 Transform:
@@ -1043,11 +1043,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2168117493260921074, guid: f9db4a877e5abfa429fdbdb0a9ce79ea, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2168117493260921074, guid: f9db4a877e5abfa429fdbdb0a9ce79ea, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1954195003
+      value: 1900029677
       objectReference: {fileID: 0}
     - target: {fileID: 2168117493260921074, guid: f9db4a877e5abfa429fdbdb0a9ce79ea, type: 3}
       propertyPath: m_WasSpriteAssigned
@@ -2439,7 +2439,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1579315402557616702, guid: c1416938db4b4ae47b6125949ef259b2, type: 3}
       propertyPath: m_SortingLayer
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1579315402557616702, guid: c1416938db4b4ae47b6125949ef259b2, type: 3}
       propertyPath: m_SortingOrder
