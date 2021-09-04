@@ -11,7 +11,7 @@ public class BagOfLetters : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            SpellManager.Instance.letters += Random.Range(MIN_LETTERS, MAX_LETTERS);
+            SpellManager.Instance.Addletters(Random.Range(MIN_LETTERS, MAX_LETTERS));
             Destroy(this.gameObject);
         }
     }

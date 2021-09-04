@@ -12,7 +12,7 @@ public class SpellManager : MonoBehaviour
     // Start is called before the first frame update
     private static SpellManager _instance;
     public static SpellManager Instance { get { return _instance; } }
-
+    public bool canSpell = true;
     void Awake()
     {
         if (_instance != null && _instance != this)
@@ -42,7 +42,8 @@ public class SpellManager : MonoBehaviour
 
     public void StartSpell()
     {
-        ToggleMenu();
+        if(canSpell)
+            ToggleMenu();
     }
 
     public void TryCastSpell(string spellName)
@@ -66,6 +67,12 @@ public class SpellManager : MonoBehaviour
     public void UpdateLettersLeft(int actuelLength = 0)
     {
         CastLeftText.ForEach(t => t.text = (letters - actuelLength).ToString());
+    }
+
+    public void Addletters(int amount)
+    {
+        letters += amount;
+        UpdateLettersLeft();
     }
 
     public void ToggleMenu()

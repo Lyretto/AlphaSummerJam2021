@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-     transform.position = new Vector3(PlayerMovement.Instance.transform.position.x,transform.position.y,0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = new Vector3(PlayerMovement.Instance.transform.position.x, transform.position.y, 0);
+        if(collision.transform.tag != "Player") Destroy(collision.gameObject);
     }
 }

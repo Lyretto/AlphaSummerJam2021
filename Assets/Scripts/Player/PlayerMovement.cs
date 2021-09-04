@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     Animator characterAnimator;
 
     private static PlayerMovement _instance;
+    private Vector3 doorExit;
+    private bool done;
+
     public static PlayerMovement Instance { get { return _instance; } }
 
     void Awake()
@@ -38,6 +41,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
+        if (done)
+        {
+            transform.localScale = Vector3.MoveTowards(transform.localScale, new Vector3(0f, 0f, 0f), 0.002f);
+            transform.position = Vector3.MoveTowards(transform.position, doorExit, 1f);
+            characterAnimator.SetBool("isGrounded", isGrounded());
+            return;
+        }
+
         if (InputManager.Instance.canMove)
         {
             Vector2 velocity = new Vector2();
@@ -81,6 +93,19 @@ public class PlayerMovement : MonoBehaviour
         return hit.collider != null;
     }
 
+    public void LevelDone(Vector3 doorExit) {
+        done = true;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        SpellManager.Instance.canSpell = false;
+        this.doorExit = doorExit;
+
+        Invoke("GoToMenu", 1.5f);
+    }
+
+    public void GoToMenu()
+    {
+        UIManager.Instance.goToMainMenu();
+    }
     //private void OnCollisionExit2D(Collision2D collision)
     //{
     //    if (collision.transform.CompareTag("Platform") && collision.transform.position.y < transform.position.y)

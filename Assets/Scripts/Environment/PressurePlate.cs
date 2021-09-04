@@ -43,6 +43,9 @@ public class PressurePlate : MonoBehaviour
 
     public void Deactivate()
     {
+        Collider2D[] cols = new Collider2D[10];
+        GetComponent<CapsuleCollider2D>().OverlapCollider(new ContactFilter2D(), cols);
+
         sr.sprite = disabledSprite;
         objectsToDeactivate.ForEach((o) => o.SetActive(!o.activeSelf));
     }

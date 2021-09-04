@@ -6,66 +6,61 @@ namespace Assets.Scripts.Casting.Spells
 {
     public class Rockball : MonoBehaviour
     {
-
-        [SerializeField] private float lifeTime = 3;
-        [SerializeField] private float waitTime = 5;
-        [SerializeField] private float speed = 4;
-        private Vector3 target = new Vector3();
         private bool started = false;
-        [SerializeField] private Sprite cursorFire;
+        Rigidbody2D rb;
+        public float force = 60f;
 
         // Use this for initialization
         void Awake() {
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
+            rb = GetComponent<Rigidbody2D>();
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
         private void FixedUpdate()
         {
-            Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            Vector3 lookAt = mouseScreenPosition;
-
-            float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
-
-            float AngleDeg = (180 / Mathf.PI) *AngleRad;
-
-            this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
-
-            if (started)
+            if(!started)
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 0.01f * speed);
-            }
-            else
-            {
+                Vector3 mouseScreenPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                Vector3 lookAt = mouseScreenPosition;
+
+                float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
+
+                float AngleDeg = (180 / Mathf.PI) * AngleRad;
+
+                this.transform.rotation = Quaternion.Euler(0, 0, AngleDeg);
+
                 transform.position = PlayerMovement.Instance.transform.position;
             }
         }
 
         public void StartSpell()
         {
-            Destroy(this.gameObject, waitTime);
-            //START Fireball waiting sound
-            CancelInvoke();
-            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
             InputManager.Instance.CastSpell(SetTarget);
+            PlayerMovement.Instance.jumpForce = 2.5f;
         }
 
         public void SetTarget()
         {
-            started = true;
+            PlayerMovement.Instance.jumpForce = 7.5f;
             InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
-            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
-
-            Destroy(this.gameObject, lifeTime);
-            // Stop Fireball waiting sound
-            // Activate Fireball MOVING Sound
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            GetComponent<BoxCollider2D>().isTrigger = false;
+            Vector3 angle = Vector3.Normalize(direction);
+            rb.AddForce(angle * force, ForceMode2D.Impulse);
+            transform.position += angle;
+            
+            started = true;
         }
 
         //DESTROY ON COLLISION
         private void OnDestroy()
         {
-            SoundManager.Instance.PlayOneShot(SoundEvent.FIREBALLHITTING);
+
         }
     }
 }
