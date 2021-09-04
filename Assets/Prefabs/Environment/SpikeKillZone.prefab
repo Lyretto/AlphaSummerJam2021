@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5624273212494343539}
   - component: {fileID: 2067518008818955084}
   m_Layer: 0
-  m_Name: Killzone
+  m_Name: SpikeKillZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
