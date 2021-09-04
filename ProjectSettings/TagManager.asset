@@ -12,6 +12,8 @@ TagManager:
   - Air
   - Stun
   - Rock
+  - GroundKillzone
+  - Enemy
   layers:
   - Default
   - TransparentFX
