@@ -7,13 +7,15 @@ public class Torch : MonoBehaviour
     Animator torchAnimator;
     public List<GameObject> objectsToDeactivate = new List<GameObject>();
     private GameObject light;
+    public bool isActivated = false;
 
     private void Start()
     {
         torchAnimator = GetComponent<Animator>();
         torchAnimator.SetBool("isBurning", false);
         light = gameObject.transform.GetChild(0).GetComponent<Transform>().gameObject;
-        light.SetActive(false);
+        light.SetActive(isActivated);
+        torchAnimator.SetBool("isBurning", isActivated);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -13,24 +13,18 @@ namespace Assets.Scripts.Casting.Spells
         {
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
+            Invoke("StopSpell", buffTime);
         }
 
         public void StartSpell()
         {
-
+            PlayerMovement.Instance.movementSpeed += speedMultiplier;
         }
 
-        private void Update()
+        public void StopSpell()
         {
-            if (buffTime >= 0)
-            {
-                buffTime -= Time.deltaTime;
-                PlayerMovement.Instance.movementSpeed +=  speedMultiplier;
-                if (buffTime <= 0)
-                {
-                    PlayerMovement.Instance.movementSpeed -= speedMultiplier;
-                }
-            }
+            PlayerMovement.Instance.movementSpeed -= speedMultiplier;
+            Destroy(this.gameObject);
         }
     }
 }

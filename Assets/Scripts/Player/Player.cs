@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
                 Invoke("ToggleHitMarker", 0.3f);
             }
         } else
-            lifes += amount;
+            lifes += Mathf.Clamp(amount,0,maxLifes);
 
         if(lifes <= 0)
         {

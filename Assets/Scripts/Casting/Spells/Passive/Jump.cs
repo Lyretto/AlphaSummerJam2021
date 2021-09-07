@@ -12,28 +12,17 @@ namespace Assets.Scripts.Casting.Spells
         {
             SpellBase sB = GetComponent<SpellBase>();
             sB.spellStartEvent.AddListener(StartSpell);
+            Invoke("StopSpell", buffTime);
         }
 
         public void StartSpell()
         {
-
+            PlayerMovement.Instance.jumpForce += jumpForce;
         }
         public void StopSpell()
         {
-
-        }
-
-        private void Update()
-        {
-            if(buffTime >= 0)
-            {
-                buffTime -= Time.deltaTime;
-                PlayerMovement.Instance.jumpForce +=  jumpForce;
-                if(buffTime <= 0)
-                {
-                    PlayerMovement.Instance.jumpForce -= jumpForce;
-                }
-            }
+            PlayerMovement.Instance.jumpForce -= jumpForce;
+            Destroy(this.gameObject);
         }
     }
 }

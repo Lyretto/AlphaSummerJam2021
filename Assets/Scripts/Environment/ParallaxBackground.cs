@@ -8,7 +8,7 @@ public class ParallaxBackground : MonoBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] float parallaxEffect;
     [SerializeField] float movingVelocity = 0f;
-    float starty = 0;
+    float starty = 0f;
     float timer = 0f;
     void Start()
     {
@@ -18,7 +18,7 @@ public class ParallaxBackground : MonoBehaviour
         starty = transform.position.y;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         timer += Time.fixedDeltaTime;
         float temp = (cam.transform.position.x * (1 - parallaxEffect));

@@ -18,11 +18,11 @@ namespace Assets.Scripts
             if (offset.x > maxOffset)
                 newCameraPosition.x = PlayerMovement.Instance.transform.position.x + maxOffset;
 
-            if (offset.y > maxOffset)
-                newCameraPosition.y = PlayerMovement.Instance.transform.position.y - maxOffset;
+            if (offset.y > maxOffset/2)
+                newCameraPosition.y = PlayerMovement.Instance.transform.position.y + maxOffset / 2;
 
-            if (offset.y < maxOffset)
-                newCameraPosition.y = PlayerMovement.Instance.transform.position.y + maxOffset;
+            if (offset.y < -maxOffset / 2)
+                newCameraPosition.y = PlayerMovement.Instance.transform.position.y - maxOffset / 2;
 
             transform.position = Vector3.SmoothDamp(transform.position, new Vector3(Mathf.Max(0, newCameraPosition.x), Mathf.Max(0, newCameraPosition.y), -10f), ref refVelocity, 0.2f);
         }
