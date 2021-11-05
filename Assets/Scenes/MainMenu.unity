@@ -672,11 +672,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/GameMusic
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 12
   AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
+  TriggerOnce: 1
+  Preload: 1
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 0
