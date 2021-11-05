@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 429822768}
   - component: {fileID: 429822767}
   - component: {fileID: 429822766}
+  - component: {fileID: 429822769}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -466,6 +467,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &429822769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429822765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &728538741
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,11 +696,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167902996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.56270915, y: 0.4307854, z: 1}
   m_Children: []
-  m_Father: {fileID: 2023080638}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1167902998
 SpriteRenderer:
@@ -753,7 +786,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 1ce5e64c6bc2ace47a6aba57a2e3399d, type: 3}
     - target: {fileID: 5110749163007239958, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_Color.a
-      value: 0.3764706
+      value: 0.5882353
       objectReference: {fileID: 0}
     - target: {fileID: 5110749163007239958, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_Color.b
@@ -775,6 +808,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: Back to Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 5395583807226582954, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.103773594
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395583807226582954, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.103773594
+      objectReference: {fileID: 0}
+    - target: {fileID: 5395583807226582954, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.103773594
+      objectReference: {fileID: 0}
     - target: {fileID: 7100855462182950711, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -785,7 +830,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7100855462182950711, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7100855462182950711, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_AnchorMax.x
@@ -849,11 +894,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7100855462182950711, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 960.00006
+      value: 646.6
       objectReference: {fileID: 0}
     - target: {fileID: 7100855462182950711, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 322
+      value: 165.2
       objectReference: {fileID: 0}
     - target: {fileID: 7100855462182950711, guid: b16ff4e0a61f0ab4d9e5ca1f99f6bc9f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1263,7 +1308,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 117848928}
-  - {fileID: 1167902997}
   - {fileID: 1283011659}
   m_Father: {fileID: 0}
   m_RootOrder: 4
