@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7302252727330156305}
   - component: {fileID: 7302252727330156304}
   - component: {fileID: 5151856740402751131}
+  - component: {fileID: -7148959915902054215}
   m_Layer: 0
   m_Name: torchStand
   m_TagString: Untagged
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1209151007
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -4875512218810446066, guid: c7168a981bdacfc43a033bfb75a03366, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,6 +178,30 @@ MonoBehaviour:
   m_ShapePathHash: 538074597
   m_Mesh: {fileID: 0}
   m_InstanceId: 327992
+--- !u!114 &-7148959915902054215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7302252727330156307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1745b094f5bdc4890f7536b58f8285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectedByGravity: 0
+  HitByGravity:
+    m_PersistentCalls:
+      m_Calls: []
+  effectedByFire: 1
+  HitByFire:
+    m_PersistentCalls:
+      m_Calls: []
+  effectedByIce: 1
+  HitByIce:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9085748764754480634
 GameObject:
   m_ObjectHideFlags: 0

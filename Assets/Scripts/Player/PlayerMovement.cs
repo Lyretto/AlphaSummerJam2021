@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     //private bool isGrounded = false;
     BoxCollider2D boxCollider;
     [SerializeField] LayerMask platformLayer;
+    [SerializeField] string scene;
     Animator characterAnimator;
 
     private static PlayerMovement _instance;
@@ -39,6 +41,16 @@ public class PlayerMovement : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
+    Vector2 velocity = new Vector2();
+    bool jump = false;
+    private void FixedUpdate()
+    {
+        rb.velocity = velocity;
+        if (jump) {
+            jump = false;
+            rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse); }
+    }
+
     private void Update()
     {
 
@@ -49,18 +61,15 @@ public class PlayerMovement : MonoBehaviour
             characterAnimator.SetBool("isGrounded", isGrounded());
             return;
         }
-
+        velocity = Vector2.zero;
         if (InputManager.Instance.canMove)
         {
-            Vector2 velocity = new Vector2();
             velocity.x = isGrounded() ? (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) / 2f : (rb.velocity.x + Input.GetAxis("Horizontal") * movementSpeed) /2f;
             velocity.y = rb.velocity.y;
-            rb.velocity = velocity;
             
             if (Input.GetButtonDown("Jump") && isGrounded())
             {
-                rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-                //isGrounded = false;
+                jump = true;
             }
         }
         if(Input.GetAxis("Horizontal") > 0)
@@ -105,6 +114,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void GoToMenu()
     {
+        // Back to menu or set next level scene!
+
+        if (scene != null)
+        {
+            SceneManager.LoadScene(scene);
+        } else
         UIManager.Instance.goToMainMenu();
     }
     //private void OnCollisionExit2D(Collision2D collision)

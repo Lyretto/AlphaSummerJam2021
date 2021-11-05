@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7915500678347865549}
   - component: {fileID: 2067518008818955084}
   - component: {fileID: 6457008123657587073}
+  - component: {fileID: -420569612412783416}
+  - component: {fileID: -3133968772497659914}
   m_Layer: 0
   m_Name: SpikeKillZone
   m_TagString: Killzone
@@ -122,3 +124,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b3b62ccced2db044bc56fdfdde54ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-420569612412783416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568913785280076613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c886688ca8300439fac3e6b8dcd107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burning: 0
+  burningTime: 2
+--- !u!114 &-3133968772497659914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568913785280076613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1745b094f5bdc4890f7536b58f8285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectedByGravity: 0
+  HitByGravity:
+    m_PersistentCalls:
+      m_Calls: []
+  effectedByFire: 1
+  HitByFire:
+    m_PersistentCalls:
+      m_Calls: []
+  effectedByIce: 1
+  HitByIce:
+    m_PersistentCalls:
+      m_Calls: []

@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void Pause()
     {
@@ -91,7 +91,7 @@ public class UIManager : MonoBehaviour
 
     public void startGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level_1");
     }
     public void quitGame()
     {

@@ -16,27 +16,8 @@ public class Torch : MonoBehaviour
         light = gameObject.transform.GetChild(0).GetComponent<Transform>().gameObject;
         light.SetActive(isActivated);
         torchAnimator.SetBool("isBurning", isActivated);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Fire"))
-        {
-            if (!light.activeSelf)
-            {
-                Activate();
-                collision.gameObject.GetComponent<FireBall>().Explosion();
-            }
-        }
-
-        if (collision.transform.CompareTag("Air"))
-        {
-            if (light.activeSelf)
-            {
-                Deactivate();
-                Destroy(collision.gameObject);
-            }
-        }
+        GetComponent<Property>().HitByFire.AddListener(Activate);
+        GetComponent<Property>().HitByIce.AddListener(Deactivate);
     }
 
     public void Activate()

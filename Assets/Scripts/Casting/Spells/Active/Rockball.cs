@@ -18,16 +18,6 @@ namespace Assets.Scripts.Casting.Spells
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.transform.CompareTag("Gravity"))
-            {
-                Debug.Log("Schwerkraft!!");
-                GetComponent<Rigidbody2D>().gravityScale = GetComponent<Rigidbody2D>().gravityScale * -1;
-                Destroy(collision.gameObject);
-            }
-        }
-
         private void FixedUpdate()
         {
 
@@ -65,12 +55,6 @@ namespace Assets.Scripts.Casting.Spells
             transform.position += angle;
             
             started = true;
-        }
-
-        //DESTROY ON COLLISION
-        private void OnDestroy()
-        {
-
         }
     }
 }

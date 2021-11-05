@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: d11c7dacff8e60348a7c164624c0dee2, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &1527230877266492983
 Animator:
@@ -149,7 +149,7 @@ MonoBehaviour:
   - {fileID: 0}
   lifes: 6
   maxLifes: 6
-  spawnPoint: {x: 0, y: 0, z: 0}
+  spawnPoint: {fileID: 0}
 --- !u!61 &1527230877266492978
 BoxCollider2D:
   m_ObjectHideFlags: 0

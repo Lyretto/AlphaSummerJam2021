@@ -78,6 +78,30 @@ MonoBehaviour:
   spellEndEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5030772052535202709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274334099846288826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa1745b094f5bdc4890f7536b58f8285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectedByGravity: 1
+  HitByGravity:
+    m_PersistentCalls:
+      m_Calls: []
+  effectedByFire: 0
+  HitByFire:
+    m_PersistentCalls:
+      m_Calls: []
+  effectedByIce: 0
+  HitByIce:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9118075924431484344
 GameObject:
   m_ObjectHideFlags: 0

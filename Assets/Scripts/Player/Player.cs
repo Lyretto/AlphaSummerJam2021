@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     private SpriteRenderer sr;
     private bool invincable = false;
     private static Player _instance;
-    public Vector3 spawnPoint = new Vector3(0f, 0f, 0f);
+    public Transform spawnPoint = null;
     public static Player Instance { get { return _instance; } }
 
     void Awake()
@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         maxLifes = hearts.Count;
         lifes = maxLifes;
+        transform.position = spawnPoint.position;
     }
     public void ChangeLifes(int amount)
     {
@@ -71,13 +72,13 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Killzone"))
         {
-            transform.position = spawnPoint;
+            transform.position = spawnPoint?.position ?? Vector3.zero;
             invincable = false;
             ChangeLifes(-1);
         }
         if (collision.CompareTag("GroundKillzone"))
         {
-            transform.position = spawnPoint;
+            transform.position = spawnPoint?.position ?? Vector3.zero;
             invincable = false;
             ChangeLifes(-1);
         }

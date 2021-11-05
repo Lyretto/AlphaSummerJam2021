@@ -15,6 +15,9 @@ public class Flammable : MonoBehaviour
         currentBurnTime = burningTime;
         flameSr = GetComponent<SpriteRenderer>();
         startColor = flameSr.color;
+        GetComponent<Property>().HitByFire.AddListener(StartBurning);
+        GetComponent<Property>().HitByIce.AddListener(StopBurning);
+
     }
 
     // Update is called once per frame
@@ -46,33 +49,13 @@ public class Flammable : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void StartBurning()
     {
-        if (collision.transform.CompareTag("Fire"))
-        {
-            burning = true;
-            collision.GetComponent<FireBall>().Explosion();
-        }
-
-        if (collision.transform.CompareTag("Ice"))
-        {
-            burning = false;
-            Destroy(collision.gameObject);
-        }
+        burning = true;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void StopBurning()
     {
-        if (collision.transform.CompareTag("Fire"))
-        {
-            burning = true;
-            collision.transform.GetComponent<FireBall>().Explosion();
-        }
-
-        if (collision.transform.CompareTag("Ice"))
-        {
-            burning = false;
-            Destroy(collision.gameObject);
-        }
+        burning = false;
     }
 }

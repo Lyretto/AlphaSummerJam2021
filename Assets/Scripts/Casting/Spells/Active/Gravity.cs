@@ -44,9 +44,7 @@ namespace Assets.Scripts.Casting.Spells
         public void StartSpell()
         {
             Destroy(this.gameObject, waitTime);
-            //START Fireball waiting sound
             CancelInvoke();
-            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
             InputManager.Instance.CastSpell(SetTarget);
         }
 
@@ -54,14 +52,10 @@ namespace Assets.Scripts.Casting.Spells
         {
             started = true;
             InputManager.Instance.onMouseButtonDown.RemoveListener(SetTarget);
-            //Cursor.SetCursor(cursorFire.texture, new Vector2(), CursorMode.ForceSoftware);
 
             Destroy(this.gameObject, lifeTime);
-            // Stop Fireball waiting sound
-            // Activate Fireball MOVING Sound
         }
 
-        //DESTROY ON COLLISION
         private void OnDestroy()
         {
             SoundManager.Instance.PlayOneShot(SoundEvent.FIREBALLHITTING);
